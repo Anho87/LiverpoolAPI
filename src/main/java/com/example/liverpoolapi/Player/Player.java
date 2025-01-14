@@ -1,5 +1,6 @@
-package com.example.liverpoolapi.models;
+package com.example.liverpoolapi.Player;
 
+import com.example.liverpoolapi.Position.Position;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,4 +27,5 @@ public class Player {
 
     @Enumerated(EnumType.STRING)
     private Position position;
+    
 }

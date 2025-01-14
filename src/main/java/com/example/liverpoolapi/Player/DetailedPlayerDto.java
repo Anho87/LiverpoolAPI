@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class PlayerDto {
+public class DetailedPlayerDto {
     
     private UUID id;
     private String name;
@@ -18,7 +18,7 @@ public class PlayerDto {
     private double height;
     private String position; 
     
-    public PlayerDto(UUID id, String name, int shirtNumber, LocalDate birthDate, String country, double height, String position) {
+    public DetailedPlayerDto(UUID id, String name, int shirtNumber, LocalDate birthDate, String country, double height, String position) {
         this.id = id;
         this.name = name;
         this.shirtNumber = shirtNumber;

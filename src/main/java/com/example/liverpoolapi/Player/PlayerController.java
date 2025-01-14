@@ -1,15 +1,14 @@
-package com.example.liverpoolapi.controllers;
+package com.example.liverpoolapi.Player;
 
-import com.example.liverpoolapi.models.Player;
-import com.example.liverpoolapi.repos.PlayerRepository;
-import com.example.liverpoolapi.services.PlayerService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/players")
 public class PlayerController {
     
     
@@ -20,8 +19,20 @@ public class PlayerController {
         this.playerService = playerService;
     }
     
-    @GetMapping("/players")
-    public List<Player> getAllPlayers(){
-        return playerService.getAllPlayers();
+    @GetMapping("/all")
+    public List<MiniPlayerDto> getAllPlayers(){
+        return playerService.getAllMiniPlayersDto();
     }
+    
+    @GetMapping("/position")
+    public List<MiniPlayerDto> getPlayersWithPosition(@RequestParam(defaultValue = "") String position){
+        return playerService.getMiniPlayersWithPosition(position.trim());
+    }
+    
+    @GetMapping("/player")
+    public DetailedPlayerDto getDetailedPlayer(@RequestParam String id){
+        return playerService.getPlayerWithId(id);
+    }
+    
+    
 }

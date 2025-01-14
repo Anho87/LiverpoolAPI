@@ -1,9 +1,20 @@
-package com.example.liverpoolapi.models;
+package com.example.liverpoolapi.Position;
 
+import lombok.Getter;
+
+@Getter
 public enum Position {
     
-    GOALKEEPER,
-    DEFENDER,
-    MIDFIELDER,
-    FORWARD
+    GOALKEEPER("Goalkeeper"),
+    DEFENDER("Defender"),
+    MIDFIELDER("Midfielder"),
+    FORWARD("Forward");
+
+
+    private final String value;
+
+    Position(String value) {
+        this.value = value;
+    }
+
 }
