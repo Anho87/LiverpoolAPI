@@ -29,11 +29,6 @@ public class PlayerService {
                 .collect(Collectors.toList());
     }
 
-    public Player getRandomPlayer() {
-        return playerRepository.findRandomPlayer()
-                .orElseThrow(() -> new IllegalStateException("No players found in the database"));
-    }
-
     public List<MiniPlayerDto> getMiniPlayersWithPosition(String position) {
         Position enumPosition = Position.valueOf(position.toUpperCase());
         List<Player> players = playerRepository.findAllByPosition(enumPosition);
